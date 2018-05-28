@@ -13,6 +13,12 @@ IF( FOO_FOUND )
   MESSAGE( STATUS "I am surprised. `foo` was indeed found for some reason." )
 ENDIF()
 
+FIND_PACKAGE( bar )
+
 ADD_EXECUTABLE( example
   example.cc
 )
+
+IF( BAR_FOUND )
+  TARGET_LINK_LIBRARIES( example ${BAR_LIBRARIES} )
+ENDIF()
