@@ -4,6 +4,15 @@ PROJECT( Example CXX )
 SET( CMAKE_CXX_STANDARD 11 )
 SET( CMAKE_CXX_STANDARD_REQUIRED ON )
 
+LIST( APPEND CMAKE_MODULE_PATH
+  ${CMAKE_SOURCE_DIR}/cmake/Modules
+)
+
+FIND_PACKAGE( foo )
+IF( FOO_FOUND )
+  MESSAGE( STATUS "I am surprised. `foo` was indeed found for some reason." )
+ENDIF()
+
 ADD_EXECUTABLE( example
   example.cc
 )
